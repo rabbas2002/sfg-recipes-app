@@ -7,7 +7,7 @@ public class UnitOfMesure {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String uom;
+    private String description;
 
     public Ingredient getIngredient() {
         return ingredient;

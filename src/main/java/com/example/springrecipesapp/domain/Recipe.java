@@ -2,6 +2,8 @@ package com.example.springrecipesapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 public class Recipe {
     @Id
@@ -18,6 +20,9 @@ public class Recipe {
     //to add
     @Lob
     private byte[]image;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
+    private Set<Ingredient> ingredientSet;
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 

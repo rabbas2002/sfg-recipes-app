@@ -23,6 +23,15 @@ public class Recipe {
 
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
+
+    public Difficulty getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(Difficulty difficulty) {
+        this.difficulty = difficulty;
+    }
+
     public Set<Ingredient> getIngredientSet() {
         return ingredientSet;
     }

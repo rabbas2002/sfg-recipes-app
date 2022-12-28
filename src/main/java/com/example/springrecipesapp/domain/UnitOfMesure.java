@@ -29,10 +29,10 @@ public class UnitOfMesure {
     }
 
     public String getUom() {
-        return uom;
+        return description;
     }
 
     public void setUom(String uom) {
-        this.uom = uom;
+        this.description = uom;
     }
 }

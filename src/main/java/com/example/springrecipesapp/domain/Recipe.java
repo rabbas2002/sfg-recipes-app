@@ -24,6 +24,8 @@ public class Recipe {
     @Enumerated(value = EnumType.STRING)
     private Difficulty difficulty;
 
+    @ManyToMany
+    private Set<Category>categories;
     public Difficulty getDifficulty() {
         return difficulty;
     }

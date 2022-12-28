@@ -26,6 +26,15 @@ public class Recipe {
 
     @ManyToMany
     private Set<Category>categories;
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Category> categories) {
+        this.categories = categories;
+    }
+
     public Difficulty getDifficulty() {
         return difficulty;
     }

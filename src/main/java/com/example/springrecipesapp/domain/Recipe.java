@@ -18,8 +18,6 @@ public class Recipe {
     private String url;
     @Lob
     private String directions;
-
-    //to add
     @Lob
     private byte[]image;
 
@@ -46,16 +44,18 @@ public class Recipe {
         this.difficulty = difficulty;
     }
 
+
+
     public Set<Ingredient> getIngredients() {
-        return ingredientSet;
+        return ingredients;
     }
 
     public void setIngredients(Set<Ingredient> ingredientSet) {
-        this.ingredientSet = ingredientSet;
+        this.ingredients = ingredientSet;
     }
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "recipe")
-    private Set<Ingredient> ingredientSet = new HashSet<>();
+    private Set<Ingredient> ingredients = new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL)
     private Notes notes;
 
@@ -78,7 +78,11 @@ public class Recipe {
     public Integer getPrepTime() {
         return prepTime;
     }
-
+    public Recipe addIngredient(Ingredient ingredient){
+        ingredient.setRecipe(this);
+        this.ingredients.add(ingredient);
+        return this;
+    }
     public void setPrepTime(Integer prepTime) {
         this.prepTime = prepTime;
     }
@@ -137,5 +141,6 @@ public class Recipe {
 
     public void setNotes(Notes notes) {
         this.notes = notes;
+        notes.setRecipe(this);
     }
 }

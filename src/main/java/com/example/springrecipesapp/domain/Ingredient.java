@@ -19,7 +19,17 @@ public class Ingredient {
         return unitOfMeasure;
     }
 
-    @OneToOne
+    public Ingredient() {
+    }
+
+    public Ingredient(String description, BigDecimal amount,UnitOfMeasure unitOfMeasure,Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.recipe = recipe;
+        this.unitOfMeasure = unitOfMeasure;
+    }
+
+    @OneToOne(fetch = FetchType.EAGER)
     private UnitOfMeasure unitOfMeasure;
 
     public UnitOfMeasure getUnitOfMesure() {
